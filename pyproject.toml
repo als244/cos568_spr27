@@ -1,0 +1,26 @@
+# The course environment: Python 3.12 + PyTorch 2.13.
+# uv.lock records the exact version of every package. Students use a prebuilt
+# copy of this environment on the cluster (see setup/env.sh) and install nothing.
+# To reproduce it anywhere else:  uv sync
+[project]
+name = "cos568"
+version = "0.1.0"
+description = "COS568: Systems and Machine Learning - programming assignments"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch==2.13.0",
+    "transformers>=4.45,<5",   # tests compare against HuggingFace's OlmoeForCausalLM
+    "safetensors",
+    "tokenizers",
+    "huggingface_hub",
+    "nvidia-ml-py",            # GPU utilization counters (torch.cuda.utilization)
+    "pytest",
+    "matplotlib",
+]
+
+[tool.uv]
+package = false                # the repo is used in place, not installed
+environments = ["sys_platform == 'linux' and platform_machine == 'x86_64'"]
+
+[tool.pytest.ini_options]
+testpaths = ["grade"]

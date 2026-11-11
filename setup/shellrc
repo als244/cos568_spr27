@@ -1,0 +1,4 @@
+# Startup file for `make gpu-shell`: your usual shell plus the course environment.
+[ -f ~/.bashrc ] && source ~/.bashrc
+source "$(dirname "${BASH_SOURCE[0]}")/env.sh"
+PS1="(cos568) ${PS1:-\\u@\\h:\\w\\$ }"

@@ -1,0 +1,4 @@
+workload,ms_per_call,gpu_util,mem_util,clock_mhz,power_w
+"large GEMM, 8192^3",4.979,93,29,2635,501
+add two 1 GiB tensors,2.0479,93,93,2874,348
+"small GEMM, 64 x 2048 x 1024",0.0062,85,0,2900,269
